@@ -1,0 +1,103 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #3a92e5;
+    box-shadow: var(--shadow-med);
+    position: relative;
+    z-index: 10;
+    margin-bottom: 1rem;
+}
+
+nav.dropdown-opened {
+    /* background-color: rgba(255, 255, 255, 0.95); */
+    background-color: #3a92e5;
+}
+
+.logo-and-app-name {
+    display: flex;
+    align-items: center; /* Add this line */
+}
+
+.logo {
+    height: 3rem;
+    transform: scale(0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.logo img {
+    filter: brightness(0) invert(1); /* Add this line */
+  }
+
+.app-name {
+    color: #fff; /* Add this line */
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.mobile-dropdown-toggle {
+    display: none;
+}
+
+.dropdown-link-container {
+    display: flex;
+    align-items: center;
+    /* background-color: #3a92e5; */
+}
+
+.dropdown-link-container a {
+    color: #fff;
+    padding: 0 1rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.dropdown-link-container a:hover {
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+    .mobile-dropdown-toggle {
+        display: block;
+        background: transparent;
+        border: none;
+        color: var(--color-text-primary);
+        padding: 0 1rem;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+
+    .mobile-dropdown-toggle:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .mobile-dropdown-toggle:hover {
+        color: var(--color-text-secondary);
+    }
+
+    .dropdown-link-container {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg-primary);
+        box-shadow: var(--shadow-med);
+    }
+
+    nav.dropdown-opened .dropdown-link-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .dropdown-opened .dropdown-link-container {
+        background-color: #3a92e5;
+        transition: background-color 0.5s ease;
+    }
+}
