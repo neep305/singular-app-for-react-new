@@ -25,6 +25,7 @@ const Navigation = () => {
                 <a href="/deeplink">Deeplink</a>
                 <a href="/event">Event</a>
                 <a href="/webtoapp">Web to App</a>
+                <a href="/banner">Banner</a>
                 <a href="/gtm">GTM</a>
             </div>
         </nav>
