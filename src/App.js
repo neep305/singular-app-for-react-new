@@ -13,6 +13,7 @@ import Banner from './components/pages/Banner';
 
 import { useState, useEffect } from 'react';
 import { singularSdk, SingularConfig, BannersOptions } from 'singular-sdk';
+import GoogleTagManager from './components/GoogleTagManager';
 
 function initSingular() {
   const bannerOptions = new BannersOptions().withWebToAppSupport();
@@ -32,6 +33,7 @@ function App() {
 
   return (
     <div className='App'>
+      <GoogleTagManager gtmId={process.env.REACT_APP_SINGULAR_GTM_ID} />
       <Router>
         <Navigation />
         <Routes>
