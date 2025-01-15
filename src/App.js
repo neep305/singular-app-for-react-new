@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import 'mvp.css';
 
+import { SingularProvider } from './contexts/SingularContext';
 import { BrowserRouter as Router, Route, Routes, Switch } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import Home from './components/pages/Home';
@@ -25,27 +26,28 @@ function initSingular() {
 }
 
 function App() {
-  // const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     initSingular();
   }, []);
 
   return (
-    <div className='App'>
-      <GoogleTagManager gtmId={process.env.REACT_APP_SINGULAR_GTM_ID} />
-      <Router>
-        <Navigation />
-        <Routes>
-            <Route path="/" exact Component={Home} />
-            <Route path="/deeplink" exact Component={Deeplink} />
-            <Route path="/event" exact Component={Event} />
-            <Route path="/webtoapp" exact Component={WebToApp} />
-            <Route path="/banner" exact Component={Banner} />
-            <Route path="/gtm" exact Component={Gtm} />
-        </Routes>
-      </Router>
-    </div>
+    <SingularProvider>
+      <div className='App'>
+        <GoogleTagManager gtmId={process.env.REACT_APP_SINGULAR_GTM_ID} />
+        <Router>
+          <Navigation />
+          <Routes>
+              <Route path="/" exact Component={Home} />
+              <Route path="/deeplink" exact Component={Deeplink} />
+              <Route path="/event" exact Component={Event} />
+              <Route path="/webtoapp" exact Component={WebToApp} />
+              <Route path="/banner" exact Component={Banner} />
+              <Route path="/gtm" exact Component={Gtm} />
+          </Routes>
+        </Router>
+      </div>
+    </SingularProvider>
   );
 }
 
