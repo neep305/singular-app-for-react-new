@@ -21,7 +21,13 @@ function initSingular() {
   const singularConfig = new SingularConfig(
     process.env.REACT_APP_SINGULAR_SDK_KEY, 
     process.env.REACT_APP_SINGULAR_SECRET_KEY, 
-    process.env.REACT_APP_SINGULAR_APP_ID).withBannersSupport(bannerOptions);
+    process.env.REACT_APP_SINGULAR_APP_ID)
+    .withBannersSupport(bannerOptions)
+    .withLogLevel(3)
+    .withInitFinishedCallback(initParams => {
+      console.log("Singular initialized");
+    });
+
   singularSdk.init(singularConfig);
 }
 
